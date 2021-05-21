@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MyProjectForWork.Models.Job>
+
+@{
+    ViewBag.Title = "AllJobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Jobs</h2>
+
+
+
+
+
+<table class="table table-bordered jumbotron">
+    <tr>
+        <th >
+            Employer
+        </th>
+        <th>
+            Job Field
+        </th>
+        <th>
+            Position
+        </th>
+        <th>
+            Job Description
+        </th>
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="/Resource/banner.jpg"class="img-circle img-responsive center-block" width="100" height="100" />
+        </td>
+        <td>
+            @Html.ActionLink(item.JobField.Field, "ShowJobField", "Jobs", new {jobField = item.JobField.Field}, null)
+        </td>
+        <td>
+            
+            @Html.ActionLink(item.JobName, "ShowJob", "Jobs", new {jobName = item.JobName}, null)
+        </td>
+        <td>
+          
+            @Html.DisplayFor(modelItem => item.JobDescription)
+            
+        </td>
+
+    </tr>
+}
+
+</table>

@@ -1,0 +1,23 @@
+﻿@model MyProjectForWork.Models.JobField
+
+@{
+    ViewBag.Title = "ShowJobField";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="jumbotron">Field of Work</h2>
+
+<div class="jumbotron">
+    <h4>@Model.Field</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Field)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Field)
+        </dd>
+
+    </dl>
+</div>

@@ -1,0 +1,85 @@
+﻿@using MyProjectForWork.Models
+@model MyProjectForWork.Models.Worker
+
+@{
+    ViewBag.Title = "AboutMe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AboutMe</h2>
+
+
+
+<div class="jumbotron">
+    <div class="top-of-profile">
+        <img src="/Resource/spongebob.jpg" alt="" class="img-rounded img-responsive left-block" width="450" height="250" />
+        <h3>@Model.UName</h3>
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobField.Field)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobField.Field)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.About)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.About)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcceptingWork)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcceptingWork)
+        </dd>
+
+    </dl>
+</div>

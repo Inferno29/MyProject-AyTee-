@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MyProjectForWork.Models.Employer>
+
+@{
+    ViewBag.Title = "AllEmployers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Employers</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            About (short)
+        </th>
+        <th>
+            About
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Name, "ThisEmployer", "Employers", new {employerName = item.Name}, null)
+           
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShortAbout)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LongAbout)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>*@
+    </tr>
+}
+
+</table>
