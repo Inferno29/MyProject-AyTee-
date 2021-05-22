@@ -5,36 +5,44 @@ using System.Web;
 using System.Web.Mvc;
 using MyProjectForWork.Models;
 using System.Data.Entity;
+using MyProjectForWork.Repository;
+using MyProjectForWork.Views.Repository;
 
 namespace MyProjectForWork.Controllers
 {
     public class WorkersController : Controller
     {
+        private readonly IUnitOfWork _unitOfWork;
+        //private ApplicationDbContext _context;
 
 
-        private ApplicationDbContext _context;
-
-        public WorkersController()
+       
+        
+        public WorkersController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
+            _unitOfWork = unitOfWork;
+
+            //_context = new ApplicationDbContext();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            _context.Dispose();
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+            
+        //   _context.Dispose();
+        //}
 
         // GET: Workers
         public ActionResult AboutMe()
         {
-
-            var workers = _context.Workers.
-                Include(q => q.JobField).
-                Where(w => w.Name == "Patrick")
-                .SingleOrDefault();
+            var work = _unitOfWork.Workers.Find(worker => worker.Name == "Spongebob").SingleOrDefault();
+        
+            //var workers = _context.Workers.
+            //    Include(q => q.JobField).
+            //    Where(w => w.Name == "Patrick")
+            //    .SingleOrDefault();
 
             
-            if(workers != null) return View(workers);
+            if(work != null) return View(work);
             throw new HttpException("Worker does not exist");
         }
     }

@@ -6,14 +6,12 @@ using MyProjectForWork.Models;
 
 namespace MyProjectForWork.Views.Repository
 {
-    public class WorkersRepository : Repository<Worker>, IWorkersRepository
+    public class EmployersRepository : Repository<Employer>, IEmployersRepository
     {
-
-        public WorkersRepository(ApplicationDbContext context)
+        public EmployersRepository(ApplicationDbContext context)
             : base(context)
         {
 
         }
-
     }
 }
