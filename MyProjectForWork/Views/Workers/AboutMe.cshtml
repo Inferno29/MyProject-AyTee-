@@ -6,7 +6,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>AboutMe</h2>
+
+
+
+
+
+@*<h2>About Me</h2>
 
 
 
@@ -82,4 +87,113 @@
         </dd>
 
     </dl>
+</div>*@
+
+
+
+
+
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+    <h3 class="margin">Hello I am</h3>
+    <img src="/Resource/spongebob.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
+    <h3>@Model.UName</h3>
 </div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+    <h3 class="margin">What Am I?</h3>
+    @if (Model.AcceptingWork)
+    {
+        <p>I am @Model.Name and my surname is @Model.SurName and I am accepting work currently</p>
+    }
+    <p>What you need to know about me is @Model.About </p>
+
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">    
+    <h3 class="margin">Where To Find Me?</h3><br>
+    <div class="row">
+        <div class="col-sm-4">
+            <p>I currently live in @Model.Adress</p>
+            <img src="/Resource/banner.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+        </div>
+        <div class="col-sm-4"> 
+            <p>My field of work is @Model.JobField.Field</p>
+            <img src="/Resource/banner.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+        </div>
+        
+        @if (Model.AcceptingWork)
+        {
+            <div class="col-sm-4"> 
+                <p>I am currently available for work</p>
+                <img src="/Resource/banner.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+            </div>
+        }
+        else
+        {
+             <div class="col-sm-4 not-available-box">
+                 <p>I am currently NOT available for work</p>
+                 <img src="/Resource/banner.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+             </div>
+        }
+        
+
+
+    </div>
+</div>
+
+
+
+
+
+<style>
+    body {
+        /*font: 20px Montserrat, sans-serif;
+        
+        color: #f5f6f7;*/
+        line-height: 1.8;
+    }
+    p {font-size: 16px;}
+    .margin {margin-bottom: 45px;}
+    .bg-1 {
+        background-color: #BCCAFF; /* Green */
+        color: #ffffff;
+    }
+    .bg-2 { 
+        background-color: #474e5d; /* Dark Blue */
+        color: #ffffff;
+    }
+    .bg-3 { 
+        background-color: #ffffff; /* White */
+        color: #555555;
+    }
+    .bg-4 { 
+        background-color: #2f2f2f; /* Black Gray */
+        color: #fff;
+    }
+    .container-fluid {
+        padding-top: 70px;
+        padding-bottom: 70px;
+        
+        
+    }
+
+
+        .container-fluid h3 {
+            transition: 0.5s;
+            transform: scaleX(1);
+        }
+ 
+
+    .not-available-box {
+        transition: 0.5s;
+    }
+    .not-available-box:hover {
+        background-color: red;
+        transition: 0.5s;
+    }
+    
+</style>
