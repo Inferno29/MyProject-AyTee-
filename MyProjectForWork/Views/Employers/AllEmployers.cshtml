@@ -5,43 +5,101 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>All Employers</h2>
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
-<table class="table">
-    <tr>
-        <th>
-            Name
-        </th>
-        <th>
-            About (short)
-        </th>
-        <th>
-            About
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink(item.Name, "ThisEmployer", "Employers", new {employerName = item.Name}, null)
-           
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShortAbout)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LongAbout)
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>*@
-    </tr>
-}
+<div id="container-banner" class="container-fluid employers-banner">
+    <h2>AyTee Employers</h2>
 
-</table>
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table table-for-employers">
+        <tr>
+            <th>
+                Logo
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                About (short)
+            </th>
+            <th>
+                About
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img id="company-image" src="/Resource/banner.jpg" class="img-rounded img-responsive" alt="Logo" width="80" height="80" />
+                </td>
+                <td id="td-name-of-company">
+                    @Html.ActionLink(item.Name, "ThisEmployer", "Employers", new { employerName = item.Name }, null)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortAbout)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LongAbout)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+<style>
+  
+    body {
+        margin-top: 30px;
+        
+    }
+
+    .employers-banner {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        opacity: 0.7;
+        transition: 0.5s;
+    }
+    #company-image {
+        border-radius: 10px;
+    }
+
+    tr {
+        border-radius: 10px;
+    }
+
+
+    th {
+        background-color: #D3D8F4;
+        opacity: 0.7;
+    }
+
+    #container-banner:hover {
+        opacity: 1;
+        transition: 0.5s;
+        
+        
+    }
+
+    tr:hover {
+        transition: 0.2s;
+        background-color: #D3D8F4;
+        
+    }
+  
+
+
+    
+</style>
