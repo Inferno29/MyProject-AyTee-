@@ -17,9 +17,17 @@ namespace MyProjectForWork.Repository
         {
             _context = context;
             Workers = new WorkersRepository(_context);
+            Jobs = new JobRepository(_context);
+            JobFields = new JobFieldRepository(_context);
+            Employers = new EmployersRepository(_context);
         }
 
+        public IJobRepository Jobs { get; private set; }
+
         public IWorkersRepository Workers { get; private set; }
+        public IJobFieldRepository JobFields { get; private set; }
+        public IEmployersRepository Employers { get; private set; }
+
         public int Complete()
         {
             return _context.SaveChanges();

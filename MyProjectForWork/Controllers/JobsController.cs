@@ -1,66 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MyProjectForWork.Models;
-using System.Data.Entity;
-using System.Net;
+using MyProjectForWork.Repository;
 
 namespace MyProjectForWork.Controllers
 {
     public class JobsController : Controller
     {
+        private readonly IUnitOfWork _unitOfWork;
+      
 
-        private ApplicationDbContext _context;
-
-        public JobsController()
+        public JobsController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
+            _unitOfWork = unitOfWork;
+            
         }
-
-        protected override void Dispose(bool disposing)
-        {
-            _context.Dispose();
-        }
-
-
-
 
         // GET: Jobs
         public ActionResult AllJobs()
         {
+            var jobs = _unitOfWork.Jobs.GetJobsAndFields();
 
-            var jobs = _context.Jobs.Include(job => job.JobField).ToList();
-          
+            
 
-            if (jobs.Count != 0) return View(jobs);
+            if (jobs.Count() != 0) return View(jobs);
 
             throw new HttpException("Job List is empty");
 
 
         }
 
-
-
-
        
         public ActionResult ShowJob(string jobName)
         {
-            var name = _context.Jobs.Include(job => job.JobField).Where(j => j.JobName == jobName).SingleOrDefault();
-
+            var name = _unitOfWork.Jobs.Find(job => job.JobName == jobName).SingleOrDefault();
+           
             if (name != null) return View(name);
 
             throw new HttpException("Job does not exist");
         }
 
-
-
         public ActionResult ShowJobField(string jobField)
         {
-            var field = _context.JobFields.Where(job => job.Field == jobField).SingleOrDefault();
+            var fields = _unitOfWork.JobFields.Find(field => field.Field == jobField).SingleOrDefault();
 
-            if(field != null) return View(field);
+
+            if(fields != null) return View(fields);
             throw new HttpException("Job field does not exist");
         }
     }

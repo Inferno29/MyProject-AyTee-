@@ -1,35 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MyProjectForWork.Models;
+
+using MyProjectForWork.Repository;
 
 namespace MyProjectForWork.Controllers
 {
     public class EmployersController : Controller
     {
 
+        private readonly IUnitOfWork _unitOfWork;
 
-
-        private ApplicationDbContext _context;
-
-        public EmployersController()
+        public EmployersController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
+            _unitOfWork = unitOfWork;
+          
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            _context.Dispose();
-        }
+   
 
         // GET: Employers
         public ActionResult AllEmployers()
         {
-
-            var employers = _context.Employers.ToList();
-            if (employers.Count != 0) return View(employers);
+            var employer = _unitOfWork.Employers.GetAllEmployersWithJobs();
+            if (employer.Count() != 0) return View(employer);
 
             throw new HttpException("There are no employers");
         }
@@ -37,7 +32,7 @@ namespace MyProjectForWork.Controllers
 
         public ActionResult ThisEmployer(string employerName)
         {
-            var employer = _context.Employers.Where(e => e.Name == employerName).SingleOrDefault();
+            var employer = _unitOfWork.Employers.GetSingleEmployerWithJobs(employerName);
             if (employer != null) return View(employer);
 
             throw new HttpException("You have not selected an employer");

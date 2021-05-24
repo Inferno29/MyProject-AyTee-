@@ -9,5 +9,7 @@ namespace MyProjectForWork.Views.Repository
     public interface IEmployersRepository : IRepository<Employer>
 
     {
+        IEnumerable<Employer> GetAllEmployersWithJobs();
+        Employer GetSingleEmployerWithJobs(string employerName);
     }
 }

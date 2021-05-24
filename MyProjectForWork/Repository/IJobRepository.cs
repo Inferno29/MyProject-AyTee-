@@ -8,5 +8,6 @@ namespace MyProjectForWork.Views.Repository
 {
     public interface IJobRepository : IRepository<Job>
     {
+        IEnumerable<Job> GetJobsAndFields();
     }
 }
