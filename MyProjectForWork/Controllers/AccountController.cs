@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyProjectForWork.Models;
+using StructureMap;
 
 namespace MyProjectForWork.Controllers
 {
@@ -18,9 +19,12 @@ namespace MyProjectForWork.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+
+        [DefaultConstructor]
         public AccountController()
         {
         }
+        
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {

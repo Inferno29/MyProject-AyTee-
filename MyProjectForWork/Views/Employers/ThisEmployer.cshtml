@@ -5,36 +5,176 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Name</h2>
 
-<div class="this-employer-selected">
-    <h4>Employer</h4>
-    <hr />
-    <dl class="dl-horizontal ">
-        <dt>
-            Name
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
 
-        <dt>
-            Mantra
-        </dt>
+<div class="grd-colors">
 
-        <dd>
-            @Html.DisplayFor(model => model.ShortAbout)
-        </dd>
 
-        <dt>
-            Who are we?
-        </dt>
+    <!-- First Container -->
+    <div class="container-fluid bg-1 text-center">
+        <h3 class="margin">We are</h3>
 
-        <dd>
-            @Html.DisplayFor(model => model.LongAbout)
-        </dd>
+        <div class="img-hover-zoom">
+            <img src="/Resource/virtual-office-space-1.1594632462.2208.png" class="img-rounded margin" style="display:inline" alt="Bird" width="800" height="350">
+        </div>
 
-    </dl>
+        <h3>@Model.Name</h3>
+    </div>
+
+
+
+    <!-- Second Container -->
+    <div class="container-fluid bg-2 text-center">
+        <h3 class="margin">What we do</h3>
+        <p>
+            @Model.ShortAbout
+        </p>
+
+        <h4>
+            @Model.LongAbout
+        </h4>
+
+
+    </div>
+
+
+
+    <!-- Third Container (Grid) -->
+    <div class="container-fluid bg-3 text-center">
+        <h3 class="margin">Where To Find Us?</h3><br>
+        <div class="row">
+            <div class="col-sm-6">
+                <p>Our Jobs</p>
+                <div class="company-jobs-image">
+                    <img src="/Resource/AdobeStock_87070391.jpg" class="img-responsive img-rounded margin" style="width:100%" alt="Image">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <p>Our Location</p>
+                <div class="company-location-image">
+                    <img src="/Resource/istockphoto-1196323722-612x612.jpg" class="img-responsive img-rounded margin" style="width:100%" alt="Image">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
 </div>
 
+
+<style>
+    body, html {
+        min-height: 100%;
+    }
+
+    body {
+        /*font: 20px Montserrat, sans-serif;
+
+        color: #f5f6f7;*/
+        line-height: 1.8;
+        text-align: center;
+        background-image: linear-gradient(#CEE4F5, #2C3C6B);
+    }
+
+    .grd-colors {
+        background-image: linear-gradient(#474e5d, #808DA8);
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .margin {
+        margin-bottom: 45px;
+    }
+
+    .bg-1 {
+        /*background-color: #474e5d;*/ /* Green */
+        color: #ffffff;
+        /*background-image: linear-gradient(#CEE4F5, #2C3C6B);*/
+    }
+
+    .bg-2 {
+        /*background-color: #474e5d;*/ /* Dark Blue */
+        color: #ffffff;
+    }
+
+    .bg-3 {
+        /*background-color: #474e5d;*/ /* White */
+        color: #ffffff;
+    }
+
+    .bg-4 {
+        background-color: #2f2f2f; /* Black Gray */
+        color: #fff;
+    }
+
+    .container-fluid {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+
+    .img-hover-zoom {
+        height: 300px; /* Modify this according to your need */
+        overflow: hidden; /* Removing this will break the effects */
+    }
+
+        .img-hover-zoom img {
+            transform-origin: 50% 65%;
+            transition: transform 5s, filter 3s ease-in-out;
+            filter: brightness(80%);
+            opacity: 0.7;
+        }
+
+        .img-hover-zoom:hover img {
+            filter: brightness(100%);
+            transform: scale(2);
+        }
+
+
+
+
+    .company-jobs-image {
+        height: 300px; /* Modify this according to your need */
+        overflow: hidden; /* Removing this will break the effects */
+    }
+
+        .company-jobs-image img {
+            transform-origin: 50% 65%;
+            transition: transform 5s, filter 3s ease-in-out;
+            filter: brightness(80%);
+            opacity: 0.8;
+        }
+
+        .company-jobs-image:hover img {
+            filter: brightness(100%);
+            transform: scale(2);
+        }
+
+
+
+
+
+    .company-location-image {
+        height: 300px; /* Modify this according to your need */
+        overflow: hidden; /* Removing this will break the effects */
+    }
+
+        .company-location-image img {
+            transform-origin: 50% 65%;
+            transition: transform 5s, filter 3s ease-in-out;
+            filter: brightness(80%);
+            opacity: 0.8;
+        }
+
+        .company-location-image:hover img {
+            filter: brightness(100%);
+            transform: scale(2);
+        }
+</style>

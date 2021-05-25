@@ -16,12 +16,29 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
+using System.Web;
+using MyProjectForWork.Models;
+
 namespace MyProjectForWork.DependencyResolution {
     using StructureMap;
 	
     public static class IoC {
-        public static IContainer Initialize() {
-            return new Container(c => c.AddRegistry<DefaultRegistry>());
+
+
+        public static IContainer Initialize()
+        {
+            return new Container(c =>
+            {
+                c.AddRegistry<DefaultRegistry>();
+                c.For<Microsoft.AspNet.Identity.IUserStore<ApplicationUser>>().Use<Microsoft.AspNet.Identity.EntityFramework.UserStore<ApplicationUser>>();
+                c.For<System.Data.Entity.DbContext>().Use(() => new ApplicationDbContext());
+                c.For<Microsoft.Owin.Security.IAuthenticationManager>().Use(() => HttpContext.Current.GetOwinContext().Authentication);
+
+            });
         }
+
+
     }
+
+
 }
