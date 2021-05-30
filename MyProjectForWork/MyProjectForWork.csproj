@@ -254,6 +254,10 @@
     <Compile Include="Repository\WorkersRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-MyProjectForWork-20210518112704.mdf" />
+    <Content Include="App_Data\aspnet-MyProjectForWork-20210518112704_log.ldf">
+      <DependentUpon>aspnet-MyProjectForWork-20210518112704.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -325,9 +329,7 @@
     <Content Include="Views\Workers\EditProfile.cshtml" />
     <Content Include="Views\Workers\AboutMe.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
