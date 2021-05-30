@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Ajax.Utilities;
+using MyProjectForWork.Models;
 using MyProjectForWork.Repository;
 
 
@@ -10,6 +12,7 @@ namespace MyProjectForWork.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
       
+      
 
 
        
@@ -18,11 +21,10 @@ namespace MyProjectForWork.Controllers
         {
             _unitOfWork = unitOfWork;
 
-           
         }
 
-      
 
+     
         // GET: Workers
         public ActionResult AboutMe()
         {
@@ -35,6 +37,14 @@ namespace MyProjectForWork.Controllers
             
             if(work != null) return View(work);
             throw new HttpException("Worker does not exist");
+        }
+
+
+        public ActionResult EditProfile()
+        {
+            
+            return View();
+
         }
     }
 }

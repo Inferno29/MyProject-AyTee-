@@ -316,13 +316,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Workers\AboutMe.cshtml" />
     <Content Include="Views\Jobs\AllJobs.cshtml" />
     <Content Include="Views\Jobs\ShowJob.cshtml" />
     <Content Include="Views\Jobs\ShowJobField.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Employers\AllEmployers.cshtml" />
     <Content Include="Views\Employers\ThisEmployer.cshtml" />
+    <Content Include="Views\Workers\EditProfile.cshtml" />
+    <Content Include="Views\Workers\AboutMe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -39,7 +39,7 @@
                 <div class="img-live-in">
                     <img src="/Resource/banner.jpg" class="img-responsive margin" style="width:100%" height="250" alt="Image">
                 </div>
-               
+
             </div>
             <div class="col-sm-4">
                 <p>My field of work is @Model.JobField.Field</p>
@@ -55,7 +55,7 @@
                     <div class="available-for-work">
                         <img src="/Resource/banner.jpg" class="img-responsive margin" style="width:100%" height="250" alt="Image">
                     </div>
-                    
+
                 </div>
             }
             else
@@ -65,7 +65,7 @@
                     <div class="not-available-for-work">
                         <img src="/Resource/banner.jpg" class="img-responsive margin" style="width:100%" height="250" alt="Image">
                     </div>
-                    
+
                 </div>
             }
 
@@ -83,61 +83,59 @@
 <style>
     body {
         /*font: 20px Montserrat, sans-serif;
-        
+
         color: #f5f6f7;*/
         line-height: 1.8;
         background-image: linear-gradient(#CEE4F5, #2C3C6B);
     }
 
-
     .grd-colors {
         background-image: linear-gradient(#474e5d, #808DA8);
     }
 
-    p {font-size: 16px;}
-    .margin {margin-bottom: 45px;}
+    p {
+        font-size: 16px;
+    }
+
+    .margin {
+        margin-bottom: 45px;
+    }
+
     .bg-1 {
-        
-        color: #ffffff;
-        
-    }
-    .bg-2 { 
-       
         color: #ffffff;
     }
+
+    .bg-2 {
+        color: #ffffff;
+    }
+
     .bg-3 {
         color: #ffffff;
     }
-    .bg-4 { 
+
+    .bg-4 {
         background-color: #2f2f2f; /* Black Gray */
         color: #fff;
     }
+
     .container-fluid {
         padding-top: 70px;
         padding-bottom: 70px;
-        
-        
     }
-
 
         .container-fluid h3 {
             transition: 0.5s;
             transform: scaleX(1);
         }
- 
 
     .not-available-box {
         transition: 0.5s;
     }
-    .not-available-box:hover {
-        
-        transition: 0.5s;
-        text-shadow: blue;
-    }
 
-
-
-
+        .not-available-box:hover {
+            transition: 0.5s;
+            text-shadow: blue;
+        }
 
     .img-live-in {
         height: 250px; /* Modify this according to your need */
@@ -156,7 +154,6 @@
             transform: scale(2);
         }
 
-
     .field-of-work {
         height: 250px; /* Modify this according to your need */
         overflow: hidden; /* Removing this will break the effects */
@@ -174,8 +171,6 @@
             transform: scale(2);
         }
 
-
-
     .available-for-work {
         height: 250px; /* Modify this according to your need */
         overflow: hidden; /* Removing this will break the effects */
@@ -192,8 +187,6 @@
             filter: brightness(100%);
             transform: scale(2);
         }
-
-
 
     .not-available-for-work {
         height: 250px; /* Modify this according to your need */

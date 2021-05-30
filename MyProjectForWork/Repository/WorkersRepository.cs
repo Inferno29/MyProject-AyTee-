@@ -16,10 +16,7 @@ namespace MyProjectForWork.Views.Repository
 
         }
 
-        //public ApplicationDbContext ApplicationDbContext
-        //{
-        //    get { return Context as ApplicationDbContext; }
-        //}
+        
 
         public IEnumerable<Worker> GetWorkersWitJobFields()
         {
