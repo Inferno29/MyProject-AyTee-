@@ -23,11 +23,11 @@ namespace MyProjectForWork.Views.Repository
             return Context.Workers.Include(work => work.JobField).ToList();
         }
 
-        public Worker GetSingleWorkerWithJobField(string name)
+        public Worker GetSingleWorkerWithJobField(int workerId)
         {
             return Context.Workers
                 .Include(work => work.JobField)
-                .Where(worker => worker.Name == name)
+                .Where(worker => worker.Id == workerId)
                 .SingleOrDefault();
         }
     }

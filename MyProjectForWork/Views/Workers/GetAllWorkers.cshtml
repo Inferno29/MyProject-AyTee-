@@ -1,0 +1,129 @@
+﻿@model IEnumerable<MyProjectForWork.Models.Worker>
+
+@{
+    ViewBag.Title = "GetAllWorkers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetAllWorkers</h2>
+
+<form>
+
+    <select name="field" id="field">
+        <optgroup label="Select">
+            @foreach (var item in Model)
+            {
+                <option value="@item.JobField.Field">@item.JobField.Field</option>
+            }
+
+        </optgroup>
+        @*<optgroup label="Design">
+                <option value="photo">Photo</option>
+                <option value="video">Video</option>
+            </optgroup>*@
+    </select>
+    <br><br>
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JobField.Field)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SurName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.About)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AcceptingWork)
+        </th>
+        <th></th>
+    </tr>
+
+    <tbody id="my-table">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobField.Field)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SurName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.About)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AcceptingWork)
+                </td>
+                <td>
+
+                    @Html.ActionLink("About me", "AboutMe", "Workers", new { workerId = item.Id }, null)
+
+                </td>
+            </tr>
+        }
+        </tbody>
+</table>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    'use strict';
+
+    $("#field").on("change",
+        function() {
+            // This code will fire every time the user selects something
+
+            var selected = $(this).val();
+            $("#my-table tr").filter(function() {
+
+                $(this).toggle($(this).text().indexOf(selected) > -1);
+            });
+
+
+        });
+
+    //$(document).ready(function() {
+    //    $("#my-input").on("keyup",
+    //        function() {
+    //            const value = $(this).val().toUpperCase();
+    //            $("#my-table tr").filter(function() {
+
+    //                $(this).toggle(this).text().indexOf(selected) > -1;
+    //            });
+    //        });
+    //});
+
+
+
+
+</script>

@@ -9,7 +9,7 @@ namespace MyProjectForWork.Views.Repository
     public interface IWorkersRepository : IRepository<Worker>
     {
         IEnumerable<Worker> GetWorkersWitJobFields();
-        Worker GetSingleWorkerWithJobField(string name);
+        Worker GetSingleWorkerWithJobField(int workerId);
 
     }
 }

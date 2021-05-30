@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
 using MyProjectForWork.Models;
 using MyProjectForWork.Repository;
+using MyProjectForWork.ViewModels;
 
 
 namespace MyProjectForWork.Controllers
@@ -12,39 +13,62 @@ namespace MyProjectForWork.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
       
-      
 
 
-       
-        
+
+
         public WorkersController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
 
+
+
         }
 
 
-     
+
         // GET: Workers
-        public ActionResult AboutMe()
+        public ActionResult AboutMe(int workerId)
         {
 
-
-            var work = _unitOfWork.Workers.GetSingleWorkerWithJobField("Spongebob");
-        
-          
-
-            
-            if(work != null) return View(work);
+            var work = _unitOfWork.Workers.GetSingleWorkerWithJobField(workerId);
+            if (work != null) return View(work);
             throw new HttpException("Worker does not exist");
         }
 
 
         public ActionResult EditProfile()
         {
-            
-            return View();
+            var jobfields =_unitOfWork.JobFields.GetAll();
+            var viewModel = new NewWorkerViewModel()
+            {
+                JobFields = jobfields,
+
+            };
+            return View(viewModel);
 
         }
+
+
+
+        [HttpPost]
+        public ActionResult Create(Worker worker)
+        {
+           _unitOfWork.Workers.Add(worker);
+           _unitOfWork.Complete();
+           return RedirectToAction("Index", "Home");
+        }
+
+
+        public ActionResult GetAllWorkers()
+        {
+            var allWorkers = _unitOfWork.Workers.GetWorkersWitJobFields();
+            return View(allWorkers);
+        }
+
+
+       
+
+
     }
 }
