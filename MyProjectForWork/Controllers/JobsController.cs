@@ -17,6 +17,7 @@ namespace MyProjectForWork.Controllers
             
         }
 
+        [Authorize]
         // GET: Jobs
         public ActionResult AllJobs()
         {
@@ -32,6 +33,7 @@ namespace MyProjectForWork.Controllers
         }
 
        
+        [Authorize]
         public ActionResult ShowJob(string jobName)
         {
             var name = _unitOfWork.Jobs.Find(job => job.JobName == jobName).SingleOrDefault();
@@ -41,6 +43,8 @@ namespace MyProjectForWork.Controllers
             throw new HttpException("Job does not exist");
         }
 
+
+        
         public ActionResult ShowJobField(string jobField)
         {
             var fields = _unitOfWork.JobFields.Find(field => field.Field == jobField).SingleOrDefault();

@@ -26,7 +26,7 @@ namespace MyProjectForWork.Controllers
         }
 
 
-
+        [Authorize]
         // GET: Workers
         public ActionResult AboutMe(int workerId)
         {
@@ -36,7 +36,7 @@ namespace MyProjectForWork.Controllers
             throw new HttpException("Worker does not exist");
         }
 
-
+        [Authorize]
         public ActionResult EditProfile()
         {
             var jobfields =_unitOfWork.JobFields.GetAll();
@@ -54,12 +54,14 @@ namespace MyProjectForWork.Controllers
         [HttpPost]
         public ActionResult Create(Worker worker)
         {
-           _unitOfWork.Workers.Add(worker);
+            _unitOfWork.Workers.Add(worker);
            _unitOfWork.Complete();
+           _unitOfWork.Dispose();
            return RedirectToAction("Index", "Home");
         }
 
 
+        [Authorize]
         public ActionResult GetAllWorkers()
         {
             var allWorkers = _unitOfWork.Workers.GetWorkersWitJobFields();

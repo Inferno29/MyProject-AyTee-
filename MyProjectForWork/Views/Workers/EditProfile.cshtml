@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>EditProfile</h2>
+<h2>Add new worker profile</h2>
 
 @using (Html.BeginForm("Create", "Workers"))
 {
@@ -79,10 +79,11 @@
         
         
         <div class="form-group">
-            @Html.LabelFor(model => model.Worker.JobField.Field, "JobFieldId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Worker.JobField.Field, "JobField", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                
                 @Html.DropDownListFor(w => w.Worker.JobField.Field, new SelectList(Model.JobFields, "Field", "Field"), null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.JobFields, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.JobFields, "", new {@class = "text-danger"})
             </div>
         </div>
         
