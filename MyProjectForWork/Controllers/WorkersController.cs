@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Microsoft.Ajax.Utilities;
 using MyProjectForWork.Models;
 using MyProjectForWork.Repository;
@@ -61,11 +62,14 @@ namespace MyProjectForWork.Controllers
         }
 
 
-        [Authorize]
+        [Authorize (Roles = RoleName.CanEditData)]
         public ActionResult GetAllWorkers()
         {
+            
             var allWorkers = _unitOfWork.Workers.GetWorkersWitJobFields();
-            return View(allWorkers);
+            if (User.IsInRole(RoleName.CanEditData)) return View(allWorkers);
+            return RedirectToAction("Index", "Home");
+
         }
 
 

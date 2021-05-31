@@ -231,6 +231,14 @@
     <Compile Include="Migrations\202105310929365_SeedUsers.Designer.cs">
       <DependentUpon>202105310929365_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105311005079_AddadditionalInformationToApplicationUser.cs" />
+    <Compile Include="Migrations\202105311005079_AddadditionalInformationToApplicationUser.Designer.cs">
+      <DependentUpon>202105311005079_AddadditionalInformationToApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105311017050_RemovedBirthDateFromApplicationUser.cs" />
+    <Compile Include="Migrations\202105311017050_RemovedBirthDateFromApplicationUser.Designer.cs">
+      <DependentUpon>202105311017050_RemovedBirthDateFromApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Employer.cs" />
@@ -238,6 +246,7 @@
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\JobField.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\Worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IUnitOfWork.cs" />
@@ -367,6 +376,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105310929365_SeedUsers.resx">
       <DependentUpon>202105310929365_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105311005079_AddadditionalInformationToApplicationUser.resx">
+      <DependentUpon>202105311005079_AddadditionalInformationToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105311017050_RemovedBirthDateFromApplicationUser.resx">
+      <DependentUpon>202105311017050_RemovedBirthDateFromApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
