@@ -1,0 +1,138 @@
+﻿@using System.Security.Cryptography.X509Certificates
+@using MyProjectForWork.Models
+@model MyProjectForWork.Models.SingleBookViewModel
+
+@{
+    ViewBag.Title = "OpenBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+@using (Html.BeginForm("Create", "Books"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.Book.Id)*@
+        @Html.HiddenFor(model => model.Book.Id)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Book.Title)
+        @Html.TextBoxFor(model => model.Book.Title)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Book.Description)
+        @Html.TextBoxFor(model => model.Book.Description)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Book.MeanRatingValue)
+        @Html.TextBoxFor(model => model.Book.MeanRatingValue)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Book.NumberOfRatings)
+        @Html.TextBoxFor(model => model.Book.NumberOfRatings)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Ratings)
+        @Html.DropDownListFor(b => b.Book.RatingId, new SelectList(Model.Ratings, "Id", "Name"), "", new { @class = "form-control" })
+    </div>
+    
+
+
+    @*<h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Id)
+            @Html.TextBoxFor(model => model.Book.Id)
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.CoverImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.CoverImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.MeanRatingValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.MeanRatingValue)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.NumberOfRatings)
+        </dt>
+        <dd>
+
+            @Html.DisplayFor(model => model.Book.NumberOfRatings)
+        </dd>
+        @Html.DropDownListFor(b => b.Book.RatingId, new SelectList(Model.Ratings, "Id", "Name"), "", new { @class = "form-control" })
+
+    </dl>*@
+
+
+    @*<select name="field" id="field">
+            <optgroup label="Select">
+                @foreach (var item in Model.Ratings)
+                {
+                    <option value="@item.Name">@item.Name</option>
+                }
+            </optgroup>
+        </select>*@
+
+
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+    @*<div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>*@
+
+}
+
+
+
+
+
+
+
+
+
+

@@ -244,6 +244,18 @@
     <Compile Include="Migrations\202107070901049_AddedBooksAndRatings.Designer.cs">
       <DependentUpon>202107070901049_AddedBooksAndRatings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107071121342_AddedMeanRating.cs" />
+    <Compile Include="Migrations\202107071121342_AddedMeanRating.Designer.cs">
+      <DependentUpon>202107071121342_AddedMeanRating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107071136512_addedNumberOfRatingsColumn.cs" />
+    <Compile Include="Migrations\202107071136512_addedNumberOfRatingsColumn.Designer.cs">
+      <DependentUpon>202107071136512_addedNumberOfRatingsColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107071736152_addedListOfRatings.cs" />
+    <Compile Include="Migrations\202107071736152_addedListOfRatings.Designer.cs">
+      <DependentUpon>202107071736152_addedListOfRatings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -255,6 +267,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\RoleName.cs" />
+    <Compile Include="Models\SingleBookViewModel.cs" />
     <Compile Include="Models\Worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IUnitOfWork.cs" />
@@ -349,6 +362,7 @@
     <Content Include="Views\Workers\AboutMe.cshtml" />
     <Content Include="Views\Workers\GetAllWorkers.cshtml" />
     <Content Include="Views\Books\ShowBooks.cshtml" />
+    <Content Include="Views\Books\OpenBook.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -394,6 +408,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107070901049_AddedBooksAndRatings.resx">
       <DependentUpon>202107070901049_AddedBooksAndRatings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071121342_AddedMeanRating.resx">
+      <DependentUpon>202107071121342_AddedMeanRating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071136512_addedNumberOfRatingsColumn.resx">
+      <DependentUpon>202107071136512_addedNumberOfRatingsColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071736152_addedListOfRatings.resx">
+      <DependentUpon>202107071736152_addedListOfRatings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
