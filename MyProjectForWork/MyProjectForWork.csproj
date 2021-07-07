@@ -190,6 +190,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\EmployersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
@@ -239,13 +240,20 @@
     <Compile Include="Migrations\202105311017050_RemovedBirthDateFromApplicationUser.Designer.cs">
       <DependentUpon>202105311017050_RemovedBirthDateFromApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107070901049_AddedBooksAndRatings.cs" />
+    <Compile Include="Migrations\202107070901049_AddedBooksAndRatings.Designer.cs">
+      <DependentUpon>202107070901049_AddedBooksAndRatings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\BookViewModel.cs" />
     <Compile Include="Models\Employer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\JobField.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\Worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -340,6 +348,7 @@
     <Content Include="Views\Workers\EditProfile.cshtml" />
     <Content Include="Views\Workers\AboutMe.cshtml" />
     <Content Include="Views\Workers\GetAllWorkers.cshtml" />
+    <Content Include="Views\Books\ShowBooks.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -382,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105311017050_RemovedBirthDateFromApplicationUser.resx">
       <DependentUpon>202105311017050_RemovedBirthDateFromApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107070901049_AddedBooksAndRatings.resx">
+      <DependentUpon>202107070901049_AddedBooksAndRatings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

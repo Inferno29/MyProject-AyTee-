@@ -1,0 +1,92 @@
+﻿@using MyProjectForWork.Models
+@model MyProjectForWork.Models.BookViewModel
+
+
+@{
+    ViewBag.Title = "ShowBooks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowBooks</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            <select name="field" id="field">
+                <optgroup label="Select">
+                    @foreach (var item in Model.Ratings)
+                    {
+                        <option value="@item.Name">@item.Name</option>
+                    }
+                </optgroup>
+            </select>
+            Rating
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Cover Image
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            ReleaseDate
+        </th>
+        <th></th>
+    </tr>
+
+    <tbody id="my-table">
+        @foreach (var item in Model.Books)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoverImage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    'use strict';
+
+    $("#field").on("change",
+        function() {
+            // This code will fire every time the user selects something
+
+            var selected = $(this).val();
+            $("#my-table tr").filter(function() {
+
+                $(this).toggle($(this).text().indexOf(selected) > -1);
+            });
+
+            $("#my-table tr").hide().slice(0, 2).show();
+        });
+
+</script>

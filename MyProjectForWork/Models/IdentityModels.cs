@@ -45,6 +45,8 @@ namespace MyProjectForWork.Models
         public DbSet<Job> Jobs { get; set; }
         public DbSet<JobField> JobFields{ get; set; }
         public DbSet<Employer> Employers { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
