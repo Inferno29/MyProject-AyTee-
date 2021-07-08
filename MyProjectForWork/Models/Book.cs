@@ -17,23 +17,9 @@ namespace MyProjectForWork.Models
         public Rating Rating { get; set; }
         public int RatingId { get; set; }
         public int ListOfRatings { get; set; }
+
         public double MeanRatingValue { get; set; }
         public int NumberOfRatings { get; set; }
-
-
-        //public Book()
-        //{
-        //    var initialRating = 0;
-        //    foreach (var rating in ListOfRatings)
-        //    {
-        //        initialRating += rating;
-
-        //    }
-
-        //    MeanRatingValue = initialRating / ListOfRatings.Count;
-
-        //}
-
 
     }
 }

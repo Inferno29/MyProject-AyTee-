@@ -256,6 +256,14 @@
     <Compile Include="Migrations\202107071736152_addedListOfRatings.Designer.cs">
       <DependentUpon>202107071736152_addedListOfRatings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107080740384_roundingDecimals.cs" />
+    <Compile Include="Migrations\202107080740384_roundingDecimals.Designer.cs">
+      <DependentUpon>202107080740384_roundingDecimals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107080755555_RemovedProperty.cs" />
+    <Compile Include="Migrations\202107080755555_RemovedProperty.Designer.cs">
+      <DependentUpon>202107080755555_RemovedProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -417,6 +425,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107071736152_addedListOfRatings.resx">
       <DependentUpon>202107071736152_addedListOfRatings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107080740384_roundingDecimals.resx">
+      <DependentUpon>202107080740384_roundingDecimals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107080755555_RemovedProperty.resx">
+      <DependentUpon>202107080755555_RemovedProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

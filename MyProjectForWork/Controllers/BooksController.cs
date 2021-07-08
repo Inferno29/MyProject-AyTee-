@@ -27,6 +27,7 @@ namespace MyProjectForWork.Controllers
         {
             var ratings = _context.Ratings.ToList();
             var books = _context.Books.Include(xmldddd => xmldddd.Rating).ToList();
+           
             var viewModel = new BookViewModel
             {
                 Ratings = ratings, 
@@ -36,8 +37,6 @@ namespace MyProjectForWork.Controllers
 
             return View(viewModel); 
         }
-
-
 
 
         public ActionResult OpenBook(string bookTitle)
@@ -58,16 +57,17 @@ namespace MyProjectForWork.Controllers
         [HttpPost]
         public ActionResult Create(Book book)
         {
-            if (book.RatingId != 0)
+            var bookInDb = _context.Books.Single(b => b.Id == book.Id);
+
+           
+            if (book.RatingId != 6 && book.RatingId != null)
             {
-                var bookInDb = _context.Books.Single(b => b.Id == book.Id);
+                
                 bookInDb.NumberOfRatings += 1;
                 bookInDb.ListOfRatings += book.RatingId;
-                bookInDb.MeanRatingValue = (double)bookInDb.ListOfRatings / (double)bookInDb.NumberOfRatings;
-               
-
-                //bookInDb.NumberOfRatings += 1; 
-
+                bookInDb.MeanRatingValue = Math.Round((double)bookInDb.ListOfRatings / (double)bookInDb.NumberOfRatings,2);
+                bookInDb.RatingId = (int)bookInDb.MeanRatingValue;
+             
                 _context.SaveChanges();
 
             }

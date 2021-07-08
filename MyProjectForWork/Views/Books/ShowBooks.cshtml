@@ -7,11 +7,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ShowBooks</h2>
+<h2>Show Books</h2>
 
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>*@
 <table class="table">
     <tr>
         <th>
@@ -43,32 +40,28 @@
     <tbody id="my-table">
         @foreach (var item in Model.Books)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rating.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CoverImage)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReleaseDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MeanRatingValue)
-                    @Html.ActionLink(item.Title, "OpenBook", "Books", new { bookTitle = item.Title }, null)
-                </td>
-                @*<td>
-                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-                    </td>*@
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating.Name)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoverImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeanRatingValue)
+                @Html.ActionLink(item.Title, "OpenBook", "Books", new { bookTitle = item.Title }, null)
+            </td>
+        </tr>
         }
     </tbody>
 </table>
@@ -82,7 +75,6 @@
 
     $("#field").on("change",
         function() {
-            // This code will fire every time the user selects something
 
             var selected = $(this).val();
             $("#my-table tr").filter(function() {
@@ -93,7 +85,5 @@
           
         });
 
-
-     /*$("#my-table tr").hide().slice(0, 1).show();*/
 
 </script>
